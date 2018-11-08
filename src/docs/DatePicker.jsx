@@ -10,7 +10,9 @@ class MyDatePicker extends React.PureComponent {
 		super();
 		
 		this.state = {
-			selectedDate: addDays(new Date(), 1)
+			selectedDate: addDays(new Date(), 1),
+			reports: [{id: 245, text: "12:43"}, {id: 2453, text: "11:43"}, {id: 2499, text: "10:45"}],
+			selectedReport: {id: 245, text: "12:43"}
 		};
 		
 		this.isDateEnabled = this.isDateEnabled.bind(this);
@@ -42,6 +44,11 @@ class MyDatePicker extends React.PureComponent {
 		});
 	}
 	
+	onReportSelect(report){
+		console.log(report, this);
+        this.setState({selectedReport: report});
+	}
+	
 	render() {
 		const { selectedDate } = this.state;
 		const locale = 'en-US';
@@ -55,7 +62,9 @@ class MyDatePicker extends React.PureComponent {
 					isDateEnabled={ this.isDateEnabled }
 					onDateSelected={ this.onDateSelected }
 					onDateHovered={ this.onDateHovered }
-					locale={ locale } />
+					locale={ locale } 
+					reports={this.state.reports} selectedReport={this.state.selectedReport} onReportSelected={this.onReportSelect.bind(this)}
+				/>
 			</div>
 		);
 	}

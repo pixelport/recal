@@ -26,6 +26,9 @@ class CalendarController extends React.PureComponent {
 		const year = initialDate.getFullYear();
 		this.state = { month, year };
 		
+		this.reports = props.reports || [];
+		this.selectedReport = props.selectedReport || null;
+		
 		// Bind all functions to this.
 		this.handleKeyPress = this.handleKeyPress.bind(this);
 		this.onDateHovered = this.onDateHovered.bind(this);
@@ -40,10 +43,11 @@ class CalendarController extends React.PureComponent {
 		this.onChangeMonth = this.onChangeMonth.bind(this);
 		this.onChangeYear = this.onChangeYear.bind(this);
 		this.createDateButtonRef = this.createDateButtonRef.bind(this);
+		this.onReportSelected = this.onReportSelected.bind(this);
 	}
 
 	componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyPress);
+    	window.addEventListener('keydown', this.handleKeyPress);
 	}
 	componentWillUnmount() {
 		window.removeEventListener('keydown', this.handleKeyPress);
@@ -233,6 +237,14 @@ class CalendarController extends React.PureComponent {
 		});
 	}
 	
+	onReportSelected(report){
+		const {onReportSelected} = this.props;
+		
+		if(onReportSelected)
+			onReportSelected(report)
+	}
+	
+	
 	isDateEnabled(date) {
 		// Check with prop function whether date is enabled.
 		const { isDateEnabled } = this.props;
@@ -311,10 +323,15 @@ class CalendarController extends React.PureComponent {
 				onDateHovered={ this.onDateHovered }
 				onDateFocused={ this.onDateFocused }
 				onChangeMonth={ this.onChangeMonth }
-				onChangeYear={ this.onChangeYear }
-
+				onChangeYear={ this.onChangeYear } 
+				onReportSelected={this.onReportSelected}
+				
 				locale={ this.props.locale }
-				disabled={ this.props.disabled } />
+				disabled={ this.props.disabled } 
+				
+				reports={this.reports} 
+				selectedReport={this.selectedReport}
+			/>
 		);
 	}
 }
