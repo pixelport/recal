@@ -54,9 +54,9 @@
     "webpack-dev-server": "^2.11.0"
   },
   "author": "Ruben Martinez Jr. <ruben.martinez93@gmail.com>",
-  "homepage": "https://github.com/rubencodes/recal",
+  "homepage": "https://github.com/pixelport/recal",
   "repository": {
     "type": "git",
-    "url": "git@github.com:rubencodes/recal.git"
+    "url": "git@github.com:pixelport/recal.git"
   }
 }
