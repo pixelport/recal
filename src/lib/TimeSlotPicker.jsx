@@ -7,7 +7,7 @@ const TimeSlotPicker = (props) => {
 
     return (<div className="TimeSlotPicker">
         <div>
-            <h1>Report</h1>
+            <h1>Report 1</h1>
         </div>
         {isLoadingReports ? 
             <div className="loadingContainer">Loading...</div> :

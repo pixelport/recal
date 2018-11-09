@@ -47,7 +47,8 @@ class MyDatePicker extends React.PureComponent {
 		setTimeout(() => {
             this.setState({
                 selectedDate: date,
-                isLoadingReports: false
+                isLoadingReports: false,
+                reports: [{id: 245, text: "NEW111"}, {id: 2453, text: "11:43"}, {id: 2499, text: "10:45"}]
             });	
 		}, 1000);
 	}

@@ -26,7 +26,6 @@ class CalendarController extends React.PureComponent {
 		const year = initialDate.getFullYear();
 		this.state = { month, year };
 		
-		this.reports = props.reports || [];
 		
 		// Bind all functions to this.
 		this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -328,7 +327,7 @@ class CalendarController extends React.PureComponent {
 				locale={ this.props.locale }
 				disabled={ this.props.disabled } 
 				
-				reports={this.reports} 
+				reports={this.props.reports || []} 
 				selectedReport={this.props.selectedReport}
                 isLoadingReports={this.props.isLoadingReports}
 			/>
