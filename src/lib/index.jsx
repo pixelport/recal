@@ -27,7 +27,6 @@ class CalendarController extends React.PureComponent {
 		this.state = { month, year };
 		
 		this.reports = props.reports || [];
-		this.selectedReport = props.selectedReport || null;
 		
 		// Bind all functions to this.
 		this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -330,7 +329,8 @@ class CalendarController extends React.PureComponent {
 				disabled={ this.props.disabled } 
 				
 				reports={this.reports} 
-				selectedReport={this.selectedReport}
+				selectedReport={this.props.selectedReport}
+                isLoadingReports={this.props.isLoadingReports}
 			/>
 		);
 	}

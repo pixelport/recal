@@ -10,7 +10,7 @@ import {
 } from './Utils';
 import TimeSlotPicker from "./TimeSlotPicker";
 
-const Calendar = (props) => {
+let Calendar = (props) => {
 	const {
 		month,
 		year,
@@ -34,7 +34,8 @@ const Calendar = (props) => {
 		locale,
         onReportSelected,
 		reports,
-        selectedReport
+        selectedReport,
+        isLoadingReports
 	} = props
 	
 	// Template for month header (days of week info).
@@ -84,7 +85,7 @@ const Calendar = (props) => {
 				</div>
 			</div>
 			<div className="TimeSelectorContainer">
-				<TimeSlotPicker reports={reports} selectedReport={selectedReport} onReportSelected={onReportSelected}/>
+				<TimeSlotPicker reports={reports} selectedReport={selectedReport} onReportSelected={onReportSelected} isLoadingReports={isLoadingReports}/>
 			</div>
 		</div>
 	);

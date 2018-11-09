@@ -1,9 +1,25 @@
 
+.loadingContainer {
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  top: 55%;
+  width: 133px;
+  font-weight: bold;
+}
+
 .TimeSlotPicker{
   height: 323px;
   margin-right:1px;
   width: 150px;
   overflow-y: scroll;
+}
+
+.TimeSlot.not-selected:hover {
+  background-color: #CDF;
+  border-color: transparent;
+  transition: background-color 0.4s, transform 0.4s, box-shadow 0.4s, -webkit-transform 0.4s;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
 }
 
 .TimeSlotPicker > div > h1{
@@ -12,6 +28,7 @@
   font-size: 24px;
   font-weight: bold;
   line-height: 30px;
+  margin: 10px 0 45px;
 }
 
 .TimeSlot {
